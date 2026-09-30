@@ -1,0 +1,114 @@
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --bg-light: #f8f9fa;
+  --text-dark: #333;
+  --text-muted: #6c757d;
+  --border-color: #dee2e6;
+  --error-color: #dc3545;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text-dark);
+  background-color: #ffffff;
+}
+
+.main-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+/* Tarjetas y Contenedores */
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Zona de carga (PB-01) */
+.drop-zone {
+  border: 2px dashed #adb5bd;
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: var(--bg-light);
+  transition: background-color 0.2s;
+}
+
+.drop-zone:hover {
+  background-color: #e9ecef;
+}
+
+/* Botones */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-outline {
+  background-color: white;
+  color: var(--text-dark);
+  border-color: var(--border-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-light);
+}
+
+.btn-active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Textos e Info */
+.error-text {
+  color: var(--error-color);
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.info-box {
+  background-color: #e9ecef;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  color: #495057;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}

@@ -63,11 +63,11 @@ export default function ImageUploader({ onImageReady }: ImageUploaderProps) {
       {error && <p className="error-text">{error}</p>}
 
       {preview && (
-        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-          <img src={preview} alt="Vista previa" style={{ maxWidth: '100%', borderRadius: '4px' }} />
-          <p className="info-box">
+        <div className="preview-container">
+          <img src={preview} alt="Vista previa" />
+          <div className="info-box">
             <strong>Dimensiones originales:</strong> {dimensions.width} x {dimensions.height} px
-          </p>
+          </div>
         </div>
       )}
     </div>

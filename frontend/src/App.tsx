@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import './App.css'; // Importación de nuestra nueva hoja de estilos
 import ImageUploader from './components/ImageUploader';
 import ScaleSelector from './components/ScaleSelector';
 
@@ -17,13 +18,11 @@ function App() {
   }, []);
 
   return (
-    <main style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h1 style={{ textAlign: 'center' }}>Excalibur - Mejorador de Imágenes</h1>
+    <main className="main-container">
+      <h1 className="title">Excalibur - Mejorador de Imágenes</h1>
       
-      {/* PB-01 */}
       <ImageUploader onImageReady={handleImageReady} />
 
-      {/* PB-02 */}
       {selectedFile && (
         <ScaleSelector 
           originalWidth={dimensions.width} 

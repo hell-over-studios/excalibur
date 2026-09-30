@@ -15,13 +15,8 @@ El proyecto contrasta dos enfoques de métodos numéricos para la resolución de
 - Exportar la imagen resultante a una resolución mayor.
 - **Comparación Analítica:** Evaluar y contrastar visualmente la calidad de la imagen generada, así como medir el costo y rendimiento computacional (tiempo de ejecución) entre el método lineal y el cúbico.
 
-##  Tecnologías y Requisitos
+##  Tecnologías
 - **Lenguaje:** Python 3.x
 - **Librerías principales:** 
   - `NumPy`: Para el manejo eficiente de las matrices de píxeles y resolución de ecuaciones.
   - `Pillow` / `OpenCV` (Opcional): Exclusivamente para facilitar la lectura/escritura de los formatos de archivo.
-
-##  Instalación y Uso
-1. Clona este repositorio:
-   ```bash
-   git clone [https://github.com/tu-usuario/upscaling-interpolacion-numerica.git](https://github.com/tu-usuario/upscaling-interpolacion-numerica.git)

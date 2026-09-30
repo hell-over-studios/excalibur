@@ -20,10 +20,10 @@ function App() {
     <main style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1 style={{ textAlign: 'center' }}>Excalibur - Mejorador de Imágenes</h1>
       
-      {/* Componente de PB-01 */}
+      {/* PB-01 */}
       <ImageUploader onImageReady={handleImageReady} />
 
-      {/* Componente de PB-02 */}
+      {/* PB-02 */}
       {selectedFile && (
         <ScaleSelector 
           originalWidth={dimensions.width} 

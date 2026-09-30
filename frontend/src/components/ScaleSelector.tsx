@@ -7,10 +7,8 @@ interface ScaleSelectorProps {
 }
 
 export default function ScaleSelector({ originalWidth, originalHeight, onScaleChange }: ScaleSelectorProps) {
-  // El factor 2x está seleccionado por defecto[cite: 2]
   const [scale, setScale] = useState<number>(2);
 
-  // Avisar a App.tsx cuando el usuario cambie la escala
   useEffect(() => {
     onScaleChange(scale);
   }, [scale, onScaleChange]);
@@ -25,7 +23,6 @@ export default function ScaleSelector({ originalWidth, originalHeight, onScaleCh
       </label>
       
       <div style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}>
-        {/* Ofrecer factores predefinidos de 2x, 3x y 4x[cite: 2] */}
         {[2, 3, 4].map(val => (
           <button
             key={val}
@@ -44,7 +41,6 @@ export default function ScaleSelector({ originalWidth, originalHeight, onScaleCh
         ))}
       </div>
 
-      {/* Mostrar dimensiones resultantes en píxeles antes de procesar[cite: 2] */}
       {originalWidth > 0 && (
         <div style={{ padding: '10px', backgroundColor: '#e9ecef', borderRadius: '4px' }}>
           <p style={{ margin: 0, color: '#495057' }}>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// 1. Definimos la interfaz para las props
 interface ImageUploaderProps {
   onImageReady?: (file: File, width: number, height: number) => void;
 }
@@ -13,7 +12,6 @@ export default function ImageUploader({ onImageReady }: ImageUploaderProps) {
   const processFile = (file: File) => {
     setError('');
     
-    // Validar formato estricto JPG/PNG según PB-01
     if (!['image/jpeg', 'image/png'].includes(file.type)) {
       setError('Formato no válido. Por favor, sube un archivo JPG o PNG.');
       setPreview(null);
@@ -21,8 +19,6 @@ export default function ImageUploader({ onImageReady }: ImageUploaderProps) {
     }
 
     const imageUrl = URL.createObjectURL(file);
-    
-    // Extraer dimensiones en píxeles
     const img = new Image();
     img.onload = () => {
       setDimensions({ width: img.width, height: img.height });
@@ -32,7 +28,6 @@ export default function ImageUploader({ onImageReady }: ImageUploaderProps) {
     img.src = imageUrl;
   };
 
-  // 2. Tipamos los eventos de React
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     const file = e.dataTransfer.files?.[0];
@@ -45,11 +40,12 @@ export default function ImageUploader({ onImageReady }: ImageUploaderProps) {
   };
 
   return (
-    <div className="uploader-container" style={{ maxWidth: '500px', margin: '0 auto' }}>
+    <div className="card">
+      <h2 className="card-title">1. Carga tu imagen</h2>
       <div 
+        className="drop-zone"
         onDragOver={(e) => e.preventDefault()} 
         onDrop={handleDrop}
-        style={{ border: '2px dashed #888', padding: '2rem', textAlign: 'center', borderRadius: '8px' }}
       >
         <p>Arrastra tu imagen aquí o</p>
         <input 
@@ -59,21 +55,19 @@ export default function ImageUploader({ onImageReady }: ImageUploaderProps) {
           id="file-upload"
           style={{ display: 'none' }}
         />
-        <label 
-          htmlFor="file-upload" 
-          style={{ cursor: 'pointer', background: '#007bff', color: 'white', padding: '8px 16px', borderRadius: '4px', display: 'inline-block', marginTop: '10px' }}
-        >
+        <label htmlFor="file-upload" className="btn btn-primary">
           Seleccionar archivo
         </label>
       </div>
 
-      {error && <p style={{ color: 'red', marginTop: '10px', fontWeight: 'bold' }}>{error}</p>}
+      {error && <p className="error-text">{error}</p>}
 
       {preview && (
-        <div style={{ marginTop: '20px', textAlign: 'center' }}>
-          <h3>Vista previa original</h3>
-          <img src={preview} alt="Vista previa" style={{ maxWidth: '100%', height: 'auto', borderRadius: '4px' }} />
-          <p>Dimensiones: {dimensions.width} x {dimensions.height} px</p>
+        <div className="preview-container">
+          <img src={preview} alt="Vista previa" />
+          <div className="info-box">
+            <strong>Dimensiones originales:</strong> {dimensions.width} x {dimensions.height} px
+          </div>
         </div>
       )}
     </div>
